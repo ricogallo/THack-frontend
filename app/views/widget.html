@@ -19,15 +19,15 @@
     <section>
       <header>
         <h2>{{ airlineResults.departureLocation }} to {{ airlineResults.arrivalLocation }}</h2>
-        <h3>{{ airlineResults.departureDate }}</h3>
+        <h3>{{ moment(airlineResults.departureDate).format('MMM Do YYYY') }}</h3>
       </header>
       <div>
         <ul>
           <li
             ng-repeat="r in airlineResults.flights">
-            <span>{{ r.departureTime }}</span> ▶ <span>{{ r.arrivalTime }}</span>
+            <span>{{ moment(r.departureTime).format('HH:mm') }}</span> ▶ <span>{{ moment(r.arrivalTime).format('HH:mm') }}</span>
             <img ng-src="{{ r.image }}">
-            <span>{{ r.price }}</span>
+            <span>£ {{ r.price }}</span>
           </li>
         </ul>
       </div>

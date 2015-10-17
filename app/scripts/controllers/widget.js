@@ -11,6 +11,8 @@ angular.module('mashopoloApp')
   .controller('WidgetCtrl', function ($scope, $route) {
     $scope.message = $route.current.params.url;
 
+    $scope.moment = window.moment;
+
     $scope.airlineResults = {
       departureLocation: 'MPX',
       arrivalLocation: 'HAM',
