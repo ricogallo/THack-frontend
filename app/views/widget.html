@@ -26,10 +26,13 @@
         <div>
           <ul>
             <li
+              class="w-first-step__flight"
               ng-repeat="r in airlineResults.flights">
-              <span>{{ moment(r.departureTime).format('HH:mm') }}</span> ▶ <span>{{ moment(r.arrivalTime).format('HH:mm') }}</span>
-              <img ng-src="{{ r.image }}">
-              <span>{{ r.price }}</span>
+              <ul>
+                <li><span>{{ moment(r.departureTime).format('HH:mm') }}</span> <div class="t-divisor">▶</div> <span>{{ moment(r.arrivalTime).format('HH:mm') }}</span></li><!--
+                --><li><img ng-src="{{ r.image }}"></li><!--
+                --><li><span>{{ r.price }}</span></li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -48,4 +51,7 @@
       Checkout tab
     </li>
   </ul>
+  <div class="w-main__footer">
+    mashopolo.com
+  </div>
 </div>

@@ -9,4 +9,29 @@
     h2 { float: left; }
     h3 { float: right; }
   }
+
+  &__flight {
+    border-bottom: 1px solid $color-grey-1;
+
+    ul > li {
+      display: inline-block;
+      padding: 15px;
+      width: 33%;
+      vertical-align: middle;
+
+      &:first-child       { text-align: left; }
+      &:first-child + li  { text-align: center; }
+      &:last-child        { text-align: right; }
+
+      span {
+        color: $color-black;
+        font-size: 14px;
+      }
+    }
+
+    img {
+      height: 30px;
+      width: auto;
+    }
+  }
 }

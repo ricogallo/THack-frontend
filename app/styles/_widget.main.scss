@@ -1,6 +1,9 @@
 .w-main {
   border: 1px solid $color-grey-1;
 
+  width: 600px;
+  height: 338px;
+
   ul, h1, h2, h3 {
     margin: 0;
     padding: 0;
@@ -17,7 +20,15 @@
       text-align: center;
       color: $color-grey-2;
 
+      &:hover { cursor: pointer; }
       &.active { color: $color-main; }
     }
+  }
+
+  &__footer {
+    background-color: $color-main;
+    padding: 5px 15px;
+    color: darken($color-main, 10%);
+    text-align: right;
   }
 }
