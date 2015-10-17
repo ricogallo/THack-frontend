@@ -1,0 +1,31 @@
+.c-main-form {
+  display: table;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 80%;
+
+  &__url {
+    width: 75%;
+    margin-right: 10px;
+  }
+
+  &__submit {
+    width: 19%;
+  }
+}
+
+// Responsive setup
+
+@media (max-width: 665px) {
+
+  .c-main-form {
+    &__url,
+    &__submit {
+      display: block;
+      width: 100%;
+    }
+
+    &__submit { margin-top: 10px; }
+  }
+
+}

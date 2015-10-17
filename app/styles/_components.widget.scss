@@ -1,0 +1,16 @@
+.c-widget {
+  margin-top: 50px;
+
+  &__iframe {
+    margin: 0 auto;
+    display: table;
+    width: 600px;
+  }
+
+  &__embed {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: table;
+  }
+}

@@ -18,13 +18,13 @@
     ng-switch-when="flights">
     <section>
       <header>
-        <h2>{{ departureLocation }} to {{ arrivalLocation }}</h2>
-        <h3>{{ departureDate }}</h3>
+        <h2>{{ airlineResults.departureLocation }} to {{ airlineResults.arrivalLocation }}</h2>
+        <h3>{{ airlineResults.departureDate }}</h3>
       </header>
       <div>
         <ul>
           <li
-            ng-repeat="r in airlineResults">
+            ng-repeat="r in airlineResults.flights">
             <span>{{ r.departureTime }}</span> ▶ <span>{{ r.arrivalTime }}</span>
             <img src="">
             <span>{{ r.price }}</span>
