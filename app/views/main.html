@@ -1,3 +1,14 @@
-<p>
-  {{ main.message }}
-</p>
+<form 
+  class=""
+  name="searchForm">
+  <input
+    type="search"
+    class=""
+    ng-model="query"
+    placeholder="Put here any URL">
+  <button
+    class=""
+    ng-click="search(query)">
+    Discover!
+  </button>
+</form>

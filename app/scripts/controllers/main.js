@@ -9,5 +9,7 @@
  */
 angular.module('mashopoloApp')
   .controller('MainCtrl', function () {
-    this.message = 'Mashopoooolo';
+    this.search = function(query) {
+
+    };
   });

@@ -18,6 +18,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+  .constant('iframePath', 'https://iframe.mashopolo.com/widget')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
