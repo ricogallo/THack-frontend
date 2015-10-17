@@ -18,7 +18,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .constant('iframePath', 'https://iframe.mashopolo.com/widget')
+  .constant('iframePath', 'http://localhost:9000/#/widget')
   .config(function ($routeProvider, $sceProvider) {
     $sceProvider.enabled(false);
     $routeProvider
@@ -27,13 +27,21 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/widget', {
+        templateUrl: 'views/widget.html',
+        controller: 'WidgetCtrl',
+        controllerAs: 'widget'
+      })
       .otherwise({
         redirectTo: '/'
       });
   })
-  .run(function($rootScope) {
+  .run(function($rootScope, $q) {
+    var deferredPosition = $q.defer();
     window.navigator.geolocation.getCurrentPosition(function(position) {
-      $rootScope.userPosition = position.coords;
+      deferredPosition.resolve(position);
     });
+
+    $rootScope.positionPromise = deferredPosition.promise;
   });
 

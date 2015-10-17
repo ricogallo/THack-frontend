@@ -8,9 +8,14 @@
  * Controller of the mashopoloApp
  */
 angular.module('mashopoloApp')
-  .controller('MainCtrl', function ($scope, iframePath) {
+  .controller('MainCtrl', function ($scope, $rootScope, iframePath) {
     $scope.search = function(query) {
-      $scope.widgetPath = iframePath + '?url=' + encodeURI(query);
-      $scope.embedCode = '<iframe src="' + $scope.widgetPath + '">';
+      $rootScope.positionPromise.then(function(position) {
+        $scope.widgetPath = iframePath +
+                            '?url=' + encodeURI(query) +
+                            '&lat=' + position.coords.latitude +
+                            '&long=' + position.coords.longitude;
+        $scope.embedCode = '<iframe src="' + $scope.widgetPath + '">';
+      });
     };
   });
