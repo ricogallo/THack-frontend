@@ -1,0 +1,12 @@
+.w-first-step {
+
+  &__header {
+    padding: 15px;
+    background-color: $color-main;
+    color: $color-white;
+
+    h2, h3 { font-size: 18px; }
+    h2 { float: left; }
+    h3 { float: right; }
+  }
+}
