@@ -1,0 +1,11 @@
+.c-navbar {
+  background-color: $color-main;
+  padding: 20px;
+
+  &__brand {
+    color: $color-white;
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+  }
+}
