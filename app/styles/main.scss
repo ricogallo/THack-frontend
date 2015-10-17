@@ -10,8 +10,15 @@
 @import "_base.inputs";
 
 // Component
-@import "_components.navbar.scss";
-@import "_components.container.scss";
-@import "_components.buttons.scss";
-@import "_components.main-form.scss";
-@import "_components.widget.scss";
+@import "_components.navbar";
+@import "_components.container";
+@import "_components.buttons";
+@import "_components.main-form";
+@import "_components.widget-wrapper";
+
+// Trumps
+@import "_trumps.clearfix";
+
+// Widget
+@import "_widget.main";
+@import "_widget.first-step";

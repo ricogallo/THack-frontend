@@ -1,48 +1,51 @@
-<ul>
-  <li
-    ng-click="goTo('flights')">
-    1. FLIGHTS
-  </li>
-  <li
-    ng-click="goTo('hotels')">
-    2. HOTELS
-  </li>
-  <li
-    ng-click="goTo('checkout')">
-    3. CHECKOUT
-  </li>
-</ul>
-<ul
-  ng-switch="location">
-  <li
-    ng-switch-when="flights">
-    <section>
-      <header>
-        <h2>{{ airlineResults.departureLocation }} to {{ airlineResults.arrivalLocation }}</h2>
-        <h3>{{ airlineResults.departureDate }}</h3>
-      </header>
-      <div>
-        <ul>
-          <li
-            ng-repeat="r in airlineResults.flights">
-            <span>{{ r.departureTime }}</span> ▶ <span>{{ r.arrivalTime }}</span>
-            <img ng-src="{{ r.image }}">
-            <span>{{ r.price }}</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </li>
-  <li
-    ng-switch-when="hotels">
-    <section>
-    </section>
-    Hotels tab
-  </li>
-  <li
-    ng-switch-when="checkout">
-    <section>
-    </section>
-    Checkout tab
-  </li>
-</ul>
+<div class="w-main">
+  <ul class="w-main__steps">
+    <li
+      ng-click="goTo('flights')">
+      1. FLIGHTS
+    </li><!--
+    --><li
+      ng-click="goTo('hotels')">
+      2. HOTELS
+    </li><!--
+    --><li
+      ng-click="goTo('checkout')">
+      3. CHECKOUT
+    </li>
+  </ul>
+  <ul
+    ng-switch="location">
+    <li
+      ng-switch-when="flights">
+      <section class="w-first-step">
+        <header class="w-first-step__header">
+          <h2>{{ airlineResults.departureLocation }} to {{ airlineResults.arrivalLocation }}</h2>
+          <h3>{{ airlineResults.departureDate }}</h3>
+          <div class="t-clearfix"></div>
+        </header>
+        <div>
+          <ul>
+            <li
+              ng-repeat="r in airlineResults.flights">
+              <span>{{ r.departureTime }}</span> ▶ <span>{{ r.arrivalTime }}</span>
+              <img ng-src="{{ r.image }}">
+              <span>{{ r.price }}</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </li>
+    <li
+      ng-switch-when="hotels">
+      <section>
+      </section>
+      Hotels tab
+    </li>
+    <li
+      ng-switch-when="checkout">
+      <section>
+      </section>
+      Checkout tab
+    </li>
+  </ul>
+</div>

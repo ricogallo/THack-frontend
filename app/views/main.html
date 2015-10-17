@@ -20,15 +20,18 @@
       Discover!
     </button>
   </form>
-  <div ng-show="widgetPath" class="c-widget">
+  <div ng-show="widgetPath" class="c-widget-wrapper">
     <iframe
-      class="c-widget__iframe"
+      class="c-widget-wrapper__iframe"
       height="200px"
       width="600px"
+      frameBorder="0"
+      scrolling="no"
       ng-src="{{widgetPath}}">
     </iframe>
+    <br>
     <input
-      class="c-widget__embed"
+      class="c-widget-wrapper__embed"
       type="text"
       disabled="true"
       ng-model="embedCode">
