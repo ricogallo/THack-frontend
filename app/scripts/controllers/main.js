@@ -8,8 +8,9 @@
  * Controller of the mashopoloApp
  */
 angular.module('mashopoloApp')
-  .controller('MainCtrl', function () {
-    this.search = function(query) {
-
+  .controller('MainCtrl', function ($scope, iframePath) {
+    $scope.search = function(query) {
+      $scope.widgetPath = iframePath + '?url=' + encodeURI(query);
+      $scope.embedCode = '<iframe src="' + $scope.widgetPath + '">';
     };
   });

@@ -19,7 +19,8 @@ angular
     'ngTouch'
   ])
   .constant('iframePath', 'https://iframe.mashopolo.com/widget')
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $sceProvider) {
+    $sceProvider.enabled(false);
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -29,4 +30,10 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function($rootScope) {
+    window.navigator.geolocation.getCurrentPosition(function(position) {
+      $rootScope.userPosition = position.coords;
+    });
   });
+

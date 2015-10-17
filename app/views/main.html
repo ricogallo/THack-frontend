@@ -8,7 +8,20 @@
     placeholder="Put here any URL">
   <button
     class=""
+    ng-disabled="!query"
     ng-click="search(query)">
     Discover!
   </button>
 </form>
+<div ng-show="widgetPath">
+  <iframe 
+    height="200px"
+    width="600px"
+    ng-src="{{widgetPath}}">
+  </iframe>
+  <br>
+  <input 
+    type="text"
+    disabled="true"
+    ng-model="embedCode">
+</div>
