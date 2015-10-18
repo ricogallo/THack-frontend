@@ -1,7 +1,10 @@
 .c-btn {
-  
+
   &--main {
     background-color: $color-main;
     color: $color-white;
+
+    &:hover { background-color: darken($color-main, 10%); }
+    &:disabled { background-color: $color-grey-2; }
   }
 }

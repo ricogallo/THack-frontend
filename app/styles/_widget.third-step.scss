@@ -1,0 +1,37 @@
+.w-third-step {
+  padding: 15px;
+
+  input {
+    float: left;
+    padding: 8px;
+    width: calc(50% - 5px);
+  }
+
+  input:nth-child(3) { width: calc(80% - 5px); }
+  input:nth-child(4) { width: calc(20% - 5px); }
+
+  input:nth-child(1n+3),
+  button:nth-child(1n+3) {
+    margin-top: 10px;
+  }
+
+  .w-third-step__item--ml { margin-left: 5px; }
+  .w-third-step__item--mr { margin-right: 5px; }
+
+  .w-third-step__date {
+    margin-top: 10px;
+
+    input {
+      width: 80px;
+      float: none;
+    }
+
+    span { color: $color-grey-2; }
+  }
+
+  .w-third-step__submit {
+    color: $color-white;
+    padding: 10px 20px;
+    float: right;
+  }
+}
