@@ -70,6 +70,15 @@ angular.module('mashopoloApp')
       ]
     };
 
+    $scope.repeatStars = function(stars) {
+      var string = '';
+      for(var i = 0; i < stars; i++) {
+        string += '&#9733 ';
+      }
+
+      return string;
+    };
+
     $scope.hotelResults = {
       arrivalLocation: 'Hamburg',
       departureDate: new Date,
