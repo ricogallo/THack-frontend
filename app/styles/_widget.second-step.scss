@@ -1,4 +1,4 @@
-.w-first-step {
+.w-second-step {
 
   &__header {
     padding: 15px;
@@ -17,14 +17,13 @@
 
     ul > li {
       display: inline-block;
-      width: 25%;
+      width: 33%;
       height: 55px;
       line-height: 55px;
       vertical-align: middle;
 
       &:first-child             { text-align: left; }
       &:first-child + li        { text-align: center; }
-      &:first-child + li + li   { text-align: center; }
       &:last-child              { text-align: right; }
 
       span {

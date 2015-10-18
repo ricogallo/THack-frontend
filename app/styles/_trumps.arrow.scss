@@ -1,6 +1,8 @@
 .t-divisor {
   font-size: 11px;
-  color: $color-grey-3;
   display: inline;
   margin: 0 5px;
 }
+
+.t-divisor--grey { color: $color-grey-3; }
+.t-divisor--white { color: $color-white; }

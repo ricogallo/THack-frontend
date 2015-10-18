@@ -1,17 +1,17 @@
-<section class="w-first-step">
-  <header class="w-first-step__header">
+<section class="w-second-step">
+  <header class="w-second-step__header">
     <h2>Hotels in {{ hotelResults.arrivalLocation }}</h2>
-    <h3>{{ moment(hotelResults.checkinDate).format('MMM Do') }} &emdash; moment(hotelResults.checkoutDate).format('MMM Do') }}</h3>
+    <h3>{{ moment(hotelResults.checkinDate).format('D MMM') }} <div class="t-divisor t-divisor--white">▶</div> {{ moment(hotelResults.checkoutDate).format('D MMM') }}</h3>
     <div class="t-clearfix"></div>
   </header>
   <div>
     <ul>
       <li
-        class="w-first-step__flight"
+        class="w-second-step__flight"
         ng-repeat="r in hotelResults.hotels">
         <ul>
           <li><span>{{ r.name }}</span></li><!--
-          --><li><span>{{ r.stars }}</li><!--
+          --><li><span>{{ r.stars }} &#9733;</li><!--
           --><li><span>&pound; {{ r.price }}</span></li>
         </ul>
       </li>
