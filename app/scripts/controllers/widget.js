@@ -20,10 +20,16 @@ angular.module('mashopoloApp')
         $scope.widgetLoading = false;
       }, 12000);
 
+      var hotelParams = {
+        lat: $route.current.params.lat,
+        long: $route.current.params.long,
+        checkin: moment(res.data.flights[0].segments[0].arrivalTime).format('YYYY-MM-DD')
+      };
+
       return $q.all([
         cityFromAirport.search(res.data.departureLocation),
         cityFromAirport.search(res.data.arrivalLocation),
-        hotels.search($route.current.params),
+        hotels.search(hotelParams),
         $q.when(res.data)
       ])
     })
