@@ -1,0 +1,16 @@
+<section class="w-first-step">
+  <header class="w-first-step__header">
+    <h2>{{ hotelResults.departureLocation }} to {{ hotelResults.arrivalLocation }}</h2>
+    <h3>{{ moment(hotelResults.departureDate).format('MMM Do YYYY') }}</h3>
+    <div class="t-clearfix"></div>
+  </header>
+  <div>
+    <ul>
+      <li
+        ng-repeat="r in hotelResults.hotels">
+        <span>{{ r.name }} </span> <span>{{ r.stars }}</span>
+        <span>{{ r.price }}</span>
+      </li>
+    </ul>
+  </div>
+</section>

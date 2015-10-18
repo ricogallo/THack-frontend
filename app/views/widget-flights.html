@@ -1,0 +1,17 @@
+<section class="w-first-step">
+  <header class="w-first-step__header">
+    <h2>{{ airlineResults.departureLocation }} to {{ airlineResults.arrivalLocation }}</h2>
+    <h3>{{ moment(airlineResults.departureDate).format('MMM Do YYYY') }}</h3>
+    <div class="t-clearfix"></div>
+  </header>
+  <div>
+    <ul>
+      <li
+        ng-repeat="r in airlineResults.flights">
+        <span>{{ moment(r.departureTime).format('HH:mm') }}</span> ▶ <span>{{ moment(r.arrivalTime).format('HH:mm') }}</span>
+        <img ng-src="{{ r.image }}">
+        <span>₤ {{ r.price }}</span>
+      </li>
+    </ul>
+  </div>
+</section>
