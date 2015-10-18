@@ -10,7 +10,7 @@
               class="w-first-step__flight"
               ng-repeat="r in airlineResults.flights">
               <ul>
-                <li><span>{{ moment(r.departureTime).format('HH:mm') }}</span> <div class="t-divisor t-divisor--grey">▶</div> <span>{{ moment(r.arrivalTime).format('HH:mm') }}</span></li><!--
+                <li ng-click="selectFlight(r)"><span>{{ moment(r.departureTime).format('HH:mm') }}</span> <div class="t-divisor t-divisor--grey">▶</div> <span>{{ moment(r.arrivalTime).format('HH:mm') }}</span></li><!--
                 --><li><span>{{ r.flightCode }}</span></li><!--
                 --><li>{{ r.airline }} <img ng-src="{{ r.image }}"></li><!--
                 --><li><span>&pound; {{ r.price }}</span></li>

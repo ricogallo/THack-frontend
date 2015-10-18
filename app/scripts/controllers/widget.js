@@ -13,6 +13,31 @@ angular.module('mashopoloApp')
 
     $scope.moment = window.moment;
 
+    $scope.location = 'flights';
+
+    $scope.is = function(location) {
+      return location === $scope.location;
+    };
+    
+    $scope.goTo = function(location) {
+      if (($scope.is('flights') &&
+          !$scope.selectedFlight) ||
+          ($scope.is('hotels') && 
+           location !== 'flights' &&
+          !$scope.selectedHotel)) {
+          return;
+      }
+
+      if ($scope.is('flights')) $scope.selectedFlight = null;
+      if ($scope.is('hotels')) $scope.selectedHotel = null;
+      $scope.location = location;
+    };
+
+    $scope.selectFlight = function(flight) {
+      $scope.selectedFlight = flight;
+      $scope.goTo('hotels');
+    };
+
     $scope.airlineResults = {
       departureLocation: 'MPX',
       arrivalLocation: 'HAM',
@@ -71,11 +96,5 @@ angular.module('mashopoloApp')
           price: '100'
         }
       ]
-    };
-
-    $scope.location = 'flights';
-
-    $scope.goTo = function(location) {
-      $scope.location = location;
     };
   });

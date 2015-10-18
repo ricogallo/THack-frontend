@@ -1,14 +1,17 @@
 <div class="w-main">
   <ul class="w-main__steps">
     <li
+      ng-class="{ active: is('flights') || is('hotels') || is('checkout') }"
       ng-click="goTo('flights')">
       1. FLIGHTS
     </li><!--
     --><li
+      ng-class="{ active: is('hotels') || is('checkout') }"
       ng-click="goTo('hotels')">
       2. HOTELS
     </li><!--
     --><li
+      ng-class="{ active: is('checkout') }"
       ng-click="goTo('checkout')">
       3. CHECKOUT
     </li>

@@ -20,7 +20,7 @@
       text-align: center;
       color: $color-grey-2;
 
-      &:hover { cursor: pointer; }
+      &:hover.active { cursor: pointer; }
       &.active { color: $color-main; }
     }
   }
