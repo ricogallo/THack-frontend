@@ -10,23 +10,42 @@
     h3 { float: right; }
   }
 
-  &__flight {
+  &__hotel {
     border-bottom: 1px solid $color-grey-1;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $color-grey-1;
+    }
 
     ul { padding: 0 15px; }
 
     ul > li {
       display: inline-block;
-      width: 33%;
       height: 55px;
       line-height: 55px;
       vertical-align: middle;
 
       &:hover { cursor: pointer; }
 
-      &:first-child             { text-align: left; }
-      &:first-child + li        { text-align: center; }
-      &:last-child              { text-align: right; }
+      &:first-child {
+        text-align: left;
+        width: 25%;
+      }
+
+      &:first-child + li {
+        text-align: center;
+        width: 40%;
+      }
+
+      &:first-child + li + li {
+        text-align: center;
+        width: 20%;
+      }
+      &:last-child {
+        text-align: right;
+        width: 15%;
+      }
 
       span {
         color: $color-black;

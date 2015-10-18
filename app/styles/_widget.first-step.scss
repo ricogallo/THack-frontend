@@ -13,6 +13,11 @@
   &__flight {
     border-bottom: 1px solid $color-grey-1;
 
+    &:hover {
+      cursor: pointer;
+      background-color: $color-grey-1;
+    }
+
     ul { padding: 0 15px; }
 
     ul > li {
@@ -21,8 +26,6 @@
       height: 55px;
       line-height: 55px;
       vertical-align: middle;
-
-      &:hover { cursor: pointer; }
 
       &:first-child             { text-align: left; }
       &:first-child + li        { text-align: center; }
