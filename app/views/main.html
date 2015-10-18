@@ -17,10 +17,10 @@
       class="c-btn c-btn--main c-main-form__submit"
       ng-disabled="!query || !isValidUrl(query)"
       ng-click="search(query)">
-      Discover
+      {{ searchLoading ? 'Loading...' : 'Discover' }}
     </button>
   </form>
-  <div ng-show="widgetPath" class="c-widget-wrapper">
+  <div ng-show="widgetPath && !searchLoading" class="c-widget-wrapper">
     <iframe
       class="c-widget-wrapper__iframe"
       height="309px"

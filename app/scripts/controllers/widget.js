@@ -8,8 +8,14 @@
  * Controller of the mashopoloApp
  */
 angular.module('mashopoloApp')
-  .controller('WidgetCtrl', function ($scope, $route) {
-    $scope.message = $route.current.params.url;
+  .controller('WidgetCtrl', function ($scope, $route, flights) {
+    $scope.airlineResults = [];
+    $scope.hotelResults = [];
+
+    flights.search($route.current.params).then(function(res) {
+      $scope.airlineResults = res.data;
+      console.log(res.data);
+    });
 
     $scope.moment = window.moment;
 
@@ -44,37 +50,37 @@ angular.module('mashopoloApp')
       $scope.goTo('checkout');
     };
 
-    $scope.airlineResults = {
-      departureLocation: 'MPX',
-      arrivalLocation: 'HAM',
-      departureDate: new Date,
-      flights: [
-        {
-          departureTime: new Date,
-          arrivalTime: new Date,
-          flightCode: 'AZ1234',
-          airline: 'Alitalia',
-          price: '100',
-          image: 'http://ndc.developer.iata.org/files/athena2.png'
-        },
-        {
-          departureTime: new Date,
-          arrivalTime: new Date,
-          flightCode: 'AZ1234',
-          airline: 'Alitalia',
-          price: '100',
-          image: 'http://ndc.developer.iata.org/files/athena2.png'
-        },
-        {
-          departureTime: new Date,
-          arrivalTime: new Date,
-          flightCode: 'AZ1234',
-          airline: 'Alitalia',
-          price: '100',
-          image: 'http://ndc.developer.iata.org/files/athena2.png'
-        }
-      ]
-    };
+    // $scope.airlineResults = {
+    //   departureLocation: 'MPX',
+    //   arrivalLocation: 'HAM',
+    //   departureDate: new Date,
+    //   flights: [
+    //     {
+    //       departureTime: new Date,
+    //       arrivalTime: new Date,
+    //       flightCode: 'AZ1234',
+    //       airline: 'Alitalia',
+    //       price: '100',
+    //       image: 'http://ndc.developer.iata.org/files/athena2.png'
+    //     },
+    //     {
+    //       departureTime: new Date,
+    //       arrivalTime: new Date,
+    //       flightCode: 'AZ1234',
+    //       airline: 'Alitalia',
+    //       price: '100',
+    //       image: 'http://ndc.developer.iata.org/files/athena2.png'
+    //     },
+    //     {
+    //       departureTime: new Date,
+    //       arrivalTime: new Date,
+    //       flightCode: 'AZ1234',
+    //       airline: 'Alitalia',
+    //       price: '100',
+    //       image: 'http://ndc.developer.iata.org/files/athena2.png'
+    //     }
+    //   ]
+    // };
 
     $scope.repeatStars = function(stars) {
       var string = '';

@@ -13,7 +13,8 @@ angular.module('mashopoloApp')
     var search = function(params) {
       return $http({
         method: 'GET',
-        url: flightsPath + params
+        url: flightsPath,
+        params: params
       });
     };
 
