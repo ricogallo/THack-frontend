@@ -85,6 +85,7 @@ angular.module('mashopoloApp')
       hotels: [
         {
           name: 'Best hotel ever',
+          address: 'Via dei Foo Bar, 24',
           checkinDate: new Date,
           checkoutDate: new Date,
           stars: 5,
@@ -92,6 +93,7 @@ angular.module('mashopoloApp')
         },
         {
           name: 'Another great hotel',
+          address: 'Via dei Foo Bar, 24',
           checkinDate: new Date,
           checkoutDate: new Date,
           stars: 5,
@@ -99,6 +101,7 @@ angular.module('mashopoloApp')
         },
         {
           name: 'St Pauli',
+          address: 'Via dei Foo Bar, 24',
           checkinDate: new Date,
           checkoutDate: new Date,
           stars: 5,
