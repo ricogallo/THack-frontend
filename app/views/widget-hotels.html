@@ -12,7 +12,7 @@
         <ul ng-click="selectHotel(r)">
           <li><span>{{ r.name }}</span></li><!--
           --><li><span ng-bind-html="repeatStars(r.stars)"></li><!--
-          --><li><span>&pound; {{ r.price }}</span></li>
+          --><li><span>&pound; {{ r.price / 100 }}</span></li>
         </ul>
       </li>
     </ul>

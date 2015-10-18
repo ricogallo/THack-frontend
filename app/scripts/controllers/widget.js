@@ -73,6 +73,8 @@ angular.module('mashopoloApp')
     
     $scope.selectHotel = function(hotel) {
       $scope.selectedHotel = hotel;
+      $scope.totalPrice = $scope.selectedHotel.price + $scope.selectedFlight.price;
+      console.log($scope.totalPrice);
       $scope.goTo('checkout');
     };
 

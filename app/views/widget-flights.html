@@ -13,7 +13,7 @@
                 <li><span>{{ moment(r.segments[0].departureTime).format('HH:mm') }}</span> <div class="t-divisor t-divisor--grey">▶</div> <span>{{ moment(r.segments[1] ? r.segments[1].arrivalTime : r.segments[0].arrivalTime).format('HH:mm') }}</span></li><!--
                 --><li><span>{{ r.segments[0].flightCode }}</span></li><!--
                 --><li>{{ r.segments[0].airline }} <img ng-src="{{ r.segments[0].airline === 'Kronos Air' ? 'images/logo1.png' : 'images/logo2.png' }}"></li><!--
-                --><li><span>&pound; {{ r.price }}</span></li>
+                --><li><span>&pound; {{ +r.price / 100 }}</span></li>
               </ul>
             </li>
           </ul>
