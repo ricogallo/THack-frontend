@@ -16,12 +16,13 @@
     ul > li {
       display: inline-block;
       padding: 15px;
-      width: 33%;
+      width: 25%;
       vertical-align: middle;
 
-      &:first-child       { text-align: left; }
-      &:first-child + li  { text-align: center; }
-      &:last-child        { text-align: right; }
+      &:first-child             { text-align: left; }
+      &:first-child + li        { text-align: center; }
+      &:first-child + li + li   { text-align: center; }
+      &:last-child              { text-align: right; }
 
       span {
         color: $color-black;
@@ -32,6 +33,8 @@
     img {
       height: 30px;
       width: auto;
+      vertical-align: middle;
+      margin-left: 5px;
     }
   }
 }
