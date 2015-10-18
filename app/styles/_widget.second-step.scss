@@ -30,18 +30,14 @@
 
       &:first-child {
         text-align: left;
-        width: 25%;
+        width: 55%;
       }
 
       &:first-child + li {
         text-align: center;
-        width: 40%;
+        width: 30%;
       }
 
-      &:first-child + li + li {
-        text-align: center;
-        width: 20%;
-      }
       &:last-child {
         text-align: right;
         width: 15%;
