@@ -8,12 +8,26 @@
  * Controller of the mashopoloApp
  */
 angular.module('mashopoloApp')
-  .controller('WidgetCtrl', function ($scope, $route, flights, payments) {
+  .controller('WidgetCtrl', function ($q, $scope, $route, flights, payments, hotels, cityFromAirport) {
     $scope.airlineResults = [];
     $scope.hotelResults = [];
 
+    $scope.widgetLoading = true;
+
     flights.search($route.current.params).then(function(res) {
       $scope.airlineResults = res.data;
+
+      return $q.all([
+        cityFromAirport.search(res.data.departureLocation),
+        cityFromAirport.search(res.data.arrivalLocation),
+        hotels.search($route.current.params),
+      ])
+    })
+    .then(function(responses) {
+        $scope.departureCity = responses[0].data.airports[0].city;
+        $scope.arrivalCity = responses[1].data.airports[0].city;
+        $scope.hotelResults = responses[2].data;
+        $scope.widgetLoading = false;
     });
 
     $scope.moment = window.moment;
@@ -33,7 +47,11 @@ angular.module('mashopoloApp')
           return;
       }
 
-      if ($scope.is('flights')) $scope.selectedFlight = null;
+      if ($scope.is('flights')) {
+        $scope.selectedFlight = null;
+        $scope.departureCity = null;
+        $scope.arrivalCity = null;
+      }
       if ($scope.is('hotels')) $scope.selectedHotel = null;
       if ($scope.is('checkout')) $scope.user = {};
       $scope.location = location;
