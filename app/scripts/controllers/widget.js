@@ -8,13 +8,17 @@
  * Controller of the mashopoloApp
  */
 angular.module('mashopoloApp')
-  .controller('WidgetCtrl', function ($q, $scope, $route, flights, payments, hotels, cityFromAirport) {
+  .controller('WidgetCtrl', function ($q, $scope, $route, flights, payments, hotels, cityFromAirport, $timeout) {
     $scope.airlineResults = [];
     $scope.hotelResults = [];
+    var timeoutId;
 
     $scope.widgetLoading = true;
 
     flights.search($route.current.params).then(function(res) {
+      timeoutId = $timeout(function() {
+        $scope.widgetLoading = false;
+      }, 12000);
 
       return $q.all([
         cityFromAirport.search(res.data.departureLocation),
@@ -29,6 +33,7 @@ angular.module('mashopoloApp')
         $scope.hotelResults = responses[2].data;
         $scope.airlineResults = responses[3].data;
         $scope.widgetLoading = false;
+        $timeout.cancel(timeoutId);
     });
 
     $scope.moment = window.moment;
