@@ -46,10 +46,9 @@
 
   <button
     class="c-btn c-btn--main w-third-step__submit"
+    ng-disabled="!checkoutForm.$valid"
     ng-click="checkout(user)">
     Checkout
   </button>
-
-    <!-- ng-disabled="!checkoutForm.$valid" -->
   <div class="t-clearfix"></div>
 </form>
