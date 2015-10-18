@@ -9,7 +9,7 @@
       <li
         class="w-second-step__hotel"
         ng-repeat="r in hotelResults.hotels">
-        <ul>
+        <ul ng-click="selectHotel(r)">
           <li><span>{{ r.name }}</span></li><!--
           --><li><span>{{ r.address }}</span></li><!--
           --><li><span ng-bind-html="repeatStars(r.stars)"></li><!--

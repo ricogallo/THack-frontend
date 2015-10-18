@@ -30,12 +30,18 @@ angular.module('mashopoloApp')
 
       if ($scope.is('flights')) $scope.selectedFlight = null;
       if ($scope.is('hotels')) $scope.selectedHotel = null;
+      if ($scope.is('checkout')) $scope.user = {};
       $scope.location = location;
     };
 
     $scope.selectFlight = function(flight) {
       $scope.selectedFlight = flight;
       $scope.goTo('hotels');
+    };
+    
+    $scope.selectHotel = function(hotel) {
+      $scope.selectedHotel = hotel;
+      $scope.goTo('checkout');
     };
 
     $scope.airlineResults = {
@@ -109,4 +115,6 @@ angular.module('mashopoloApp')
         }
       ]
     };
+
+    $scope.user = {};
   });

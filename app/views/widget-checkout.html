@@ -1,0 +1,44 @@
+<form
+  name="checkoutForm"
+  class="">
+  <input
+    type="text"
+    ng-model="user.fullName"
+    placeholder="Full name">
+  <input
+    required
+    type="user.email"
+    ng-model="email"
+    placeholder="E-mail">
+  <input
+    required
+    type="text"
+    ng-model="user.cardNumber"
+    placeholder="Card number">
+  <input
+    required
+    type="text"
+    ng-model="user.cvc"
+    placeholder="CVC">
+  <input
+    required
+    type="number"
+    ng-model="user.month"
+    maxlength="2"
+    min="1"
+    max="12"
+    placeholder="MM">
+  <input
+    required
+    type="number"
+    ng-model="user.year"
+    maxlength="2"
+    min="15"
+    placeholder="YY">
+  <button
+    class=""
+    ng-disabled="!checkoutForm.$valid"
+    ng-click="checkout(user)">
+    Checkout
+  </button>
+</form>
