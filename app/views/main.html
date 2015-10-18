@@ -29,10 +29,12 @@
       scrolling="no"
       ng-src="{{widgetPath}}">
     </iframe>
-    <input
-      class="c-widget-wrapper__embed"
-      type="text"
-      disabled="true"
-      ng-model="embedCode">
+    <div class="c-widget-wrapper__embed">
+      <span>Embed code:</span>
+      <input
+        type="text"
+        disabled="true"
+        ng-model="embedCode">
+    </div>
   </div>
 </div>

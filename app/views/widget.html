@@ -1,41 +1,44 @@
-<svg ng-show="widgetLoading">
-  <circle id="js-loader" cx="60" cy="60" r="30" stroke="#d63838" stroke-width="15" fill="transparent"/>
-</svg>
-<div ng-hide="widgetLoading" class="w-main">
-  <ul class="w-main__steps" ng-hide="is('end')">
-    <li
-      ng-class="{ active: is('flights') || is('hotels') || is('checkout') }"
-      ng-click="goTo('flights')">
-      1. FLIGHTS
-    </li><!--
-    --><li
-      ng-class="{ active: is('hotels') || is('checkout') }"
-      ng-click="goTo('hotels')">
-      2. HOTELS
-    </li><!--
-    --><li
-      ng-class="{ active: is('checkout') }"
-      ng-click="goTo('checkout')">
-      3. CHECKOUT
-    </li>
-  </ul>
-  <ul
-    ng-switch="location">
-    <li
-      ng-switch-when="flights">
-      <ng-include src="'views/widget-flights.html'"></ng-include>
-    </li>
-    <li
-      ng-switch-when="hotels">
-      <ng-include src="'views/widget-hotels.html'"></ng-include>
-    </li>
-    <li
-      ng-switch-when="checkout">
-      <ng-include src="'views/widget-checkout.html'"></ng-include>
-    </li>
-  </ul>
-  <ng-include src="'views/widget-end.html'" ng-show="is('end')"></ng-include>
-  <div class="w-main__footer">
-    mashopolo.com
+<div class="w-main">
+  <svg ng-show="widgetLoading">
+    <circle id="js-loader"  cx="60" cy="60" r="30" stroke="#d63838" stroke-width="15" fill="transparent"/>
+  </svg>
+
+  <div ng-hide="widgetLoading">
+    <ul class="w-main__steps" ng-hide="is('end')">
+      <li
+        ng-class="{ active: is('flights') || is('hotels') || is('checkout') }"
+        ng-click="goTo('flights')">
+        1. FLIGHTS
+      </li><!--
+      --><li
+        ng-class="{ active: is('hotels') || is('checkout') }"
+        ng-click="goTo('hotels')">
+        2. HOTELS
+      </li><!--
+      --><li
+        ng-class="{ active: is('checkout') }"
+        ng-click="goTo('checkout')">
+        3. CHECKOUT
+      </li>
+    </ul>
+    <ul
+      ng-switch="location">
+      <li
+        ng-switch-when="flights">
+        <ng-include src="'views/widget-flights.html'"></ng-include>
+      </li>
+      <li
+        ng-switch-when="hotels">
+        <ng-include src="'views/widget-hotels.html'"></ng-include>
+      </li>
+      <li
+        ng-switch-when="checkout">
+        <ng-include src="'views/widget-checkout.html'"></ng-include>
+      </li>
+    </ul>
+    <ng-include src="'views/widget-end.html'" ng-show="is('end')"></ng-include>
+    <div class="w-main__footer">
+      mashopolo.com
+    </div>
   </div>
 </div>
