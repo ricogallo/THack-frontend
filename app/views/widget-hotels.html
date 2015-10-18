@@ -10,9 +10,9 @@
         class="w-first-step__flight"
         ng-repeat="r in hotelResults.hotels">
         <ul>
-          <li><span>{{ r.name }}</span> <span>{{ moment(r.checkingDate).format('MM Do YYYY') }}</span><span>{{ moment(r.checkoutDate).format('MM Do YYYY') }}</span></li><!--
+          <li><span>{{ r.name }}</span> <span>{{ moment(r.checkingDate).format('MMM Do YYYY') }}</span><span>{{ moment(r.checkoutDate).format('MMM Do YYYY') }}</span></li><!--
           --><li><span>{{ r.stars }}</li><!--
-          --><li><span>{{ r.price }}</span></li>
+          --><li><span>&pound; {{ r.price }}</span></li>
         </ul>
       </li>
     </ul>

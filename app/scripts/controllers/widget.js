@@ -45,6 +45,34 @@ angular.module('mashopoloApp')
       ]
     };
 
+    $scope.hotelResults = {
+      arrivalLocation: 'Hamburg',
+      departureDate: new Date,
+      hotels: [
+        {
+          name: 'Best hotel ever',
+          checkinDate: new Date,
+          checkoutDate: new Date,
+          stars: 5,
+          price: '100'
+        },
+        {
+          name: 'Another great hotel',
+          checkinDate: new Date,
+          checkoutDate: new Date,
+          stars: 5,
+          price: '100'
+        },
+        {
+          name: 'St Pauli',
+          checkinDate: new Date,
+          checkoutDate: new Date,
+          stars: 5,
+          price: '100'
+        }
+      ]
+    };
+
     $scope.location = 'flights';
 
     $scope.goTo = function(location) {
