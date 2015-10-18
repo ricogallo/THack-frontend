@@ -1,20 +1,20 @@
 <section class="w-first-step">
-        <header class="w-first-step__header">
-          <h2>{{ airlineResults.departureLocation }} to {{ airlineResults.arrivalLocation }}</h2>
-          <h3>{{ moment(airlineResults.departureDate).format('MMM Do YYYY') }}</h3>
-          <div class="t-clearfix"></div>
-        </header>
-        <div>
-          <ul>
-            <li
-              class="w-first-step__flight"
-              ng-repeat="r in airlineResults.flights">
-              <ul>
-                <li><span>{{ moment(r.departureTime).format('HH:mm') }}</span> <div class="t-divisor">▶</div> <span>{{ moment(r.arrivalTime).format('HH:mm') }}</span></li><!--
-                --><li><img ng-src="{{ r.image }}"></li><!--
-                --><li><span>{{ r.price }}</span></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </section>
+  <header class="w-first-step__header">
+    <h2>Hotels in {{ hotelResults.arrivalLocation }}</h2>
+    <h3>{{ moment(hotelResults.checkinDate).format('MMM Do YYYY') }}</h3>
+    <div class="t-clearfix"></div>
+  </header>
+  <div>
+    <ul>
+      <li
+        class="w-first-step__flight"
+        ng-repeat="r in hotelResults.hotels">
+        <ul>
+          <li><span>{{ r.name }}</span> <span>{{ moment(r.checkingDate).format('MM Do YYYY') }}</span><span>{{ moment(r.checkoutDate).format('MM Do YYYY') }}</span></li><!--
+          --><li><span>{{ r.stars }}</li><!--
+          --><li><span>{{ r.price }}</span></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
