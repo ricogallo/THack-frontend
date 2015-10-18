@@ -22,6 +22,8 @@
       line-height: 55px;
       vertical-align: middle;
 
+      &:hover { cursor: pointer; }
+
       &:first-child             { text-align: left; }
       &:first-child + li        { text-align: center; }
       &:first-child + li + li   { text-align: center; }
