@@ -19,9 +19,9 @@ angular
     'ngTouch',
     'xml'
   ])
-  .constant('iframePath', 'http://localhost:9000/#/widget')
-  .constant('flightsPath', 'http://box.mashopolo.com:3000/flights')
-  .constant('hotelsPath', 'http://box.mashopolo.com:3000/hotels')
+  .constant('iframePath', 'http://thack.mashopolo.com/#/widget')
+  .constant('flightsPath', 'http://box.mashopolo.com/flights')
+  .constant('hotelsPath', 'http://box.mashopolo.com/hotels')
   .constant('cityFromAirportPath', 'http://airport.api.aero/airport')
   .config(function ($routeProvider, $sceProvider, $httpProvider) {
     $sceProvider.enabled(false);
