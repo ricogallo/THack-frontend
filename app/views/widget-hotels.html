@@ -11,7 +11,6 @@
         ng-repeat="r in hotelResults">
         <ul ng-click="selectHotel(r)">
           <li><span>{{ r.name }}</span></li><!--
-          <!-- --1><li><span>{{ r.address }}</span></li><!-- -->
           --><li><span ng-bind-html="repeatStars(r.stars)"></li><!--
           --><li><span>&pound; {{ r.price }}</span></li>
         </ul>
