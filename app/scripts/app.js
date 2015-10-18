@@ -19,6 +19,7 @@ angular
     'ngTouch'
   ])
   .constant('iframePath', 'http://localhost:9000/#/widget')
+  .constant('flightsPath', 'http://box.mashopolo.com:3000/flights')
   .config(function ($routeProvider, $sceProvider) {
     $sceProvider.enabled(false);
     $routeProvider
