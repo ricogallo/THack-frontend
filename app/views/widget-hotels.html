@@ -10,7 +10,7 @@
         class="w-second-step__flight"
         ng-repeat="r in hotelResults.hotels">
         <ul>
-          <li><span>{{ r.name }}</span></li><!--
+          <li><span>{{ r.name }}</span><span>{{ r.address }}</span></li><!--
           --><li><span ng-bind-html="repeatStars(r.stars)"></li><!--
           --><li><span>&pound; {{ r.price }}</span></li>
         </ul>
