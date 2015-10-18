@@ -15,18 +15,19 @@ angular.module('mashopoloApp')
     $scope.widgetLoading = true;
 
     flights.search($route.current.params).then(function(res) {
-      $scope.airlineResults = res.data;
 
       return $q.all([
         cityFromAirport.search(res.data.departureLocation),
         cityFromAirport.search(res.data.arrivalLocation),
         hotels.search($route.current.params),
+        $q.when(res.data)
       ])
     })
     .then(function(responses) {
         $scope.departureCity = responses[0].data.airports[0].city;
         $scope.arrivalCity = responses[1].data.airports[0].city;
         $scope.hotelResults = responses[2].data;
+        $scope.airlineResults = responses[3].data;
         $scope.widgetLoading = false;
     });
 
