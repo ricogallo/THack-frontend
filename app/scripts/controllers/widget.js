@@ -11,16 +11,20 @@ angular.module('mashopoloApp')
   .controller('WidgetCtrl', function ($q, $rootScope, $scope, $route, flights, payments, hotels, cityFromAirport, $timeout) {
     $scope.airlineResults = [];
     $scope.hotelResults = [];
+    var foo;
 
     $scope.widgetLoading = true;
 
     flights.search($route.current.params).then(function(res) {
       $rootScope.checkinDate = res.data.flights[0].segments[0].arrivalTime;
+     foo = res.data.arrivalLocation;
       var hotelParams = {
         lat: $route.current.params.lat,
         long: $route.current.params.long,
         checkin: moment(res.data.flights[0].segments[0].arrivalTime).format('YYYY-MM-DD')
       };
+
+    
 
       return $q.all([
         cityFromAirport.search(res.data.departureLocation),
@@ -30,7 +34,7 @@ angular.module('mashopoloApp')
       ])
     })
     .then(function(responses) {
-        $rootScope.departureCity = responses[0].data.airports[0].city;
+        $rootScope.departureCity = responses[0].data.airports.length ? responses[0].data.airports[0].city : '';
         $rootScope.arrivalCity = responses[1].data.airports[0].city;
         $scope.hotelResults = responses[2].data;
         $scope.airlineResults = responses[3].data;
@@ -84,37 +88,6 @@ angular.module('mashopoloApp')
       }
 
       return string;
-    };
-
-    $scope.hotelResults = {
-      arrivalLocation: 'Hamburg',
-      departureDate: new Date,
-      hotels: [
-        {
-          name: 'Best hotel ever',
-          address: 'Via dei Foo Bar, 24',
-          checkinDate: new Date,
-          checkoutDate: new Date,
-          stars: 5,
-          price: '100'
-        },
-        {
-          name: 'Another great hotel',
-          address: 'Via dei Foo Bar, 24',
-          checkinDate: new Date,
-          checkoutDate: new Date,
-          stars: 5,
-          price: '100'
-        },
-        {
-          name: 'St Pauli',
-          address: 'Via dei Foo Bar, 24',
-          checkinDate: new Date,
-          checkoutDate: new Date,
-          stars: 5,
-          price: '100'
-        }
-      ]
     };
 
     $scope.user = {};
