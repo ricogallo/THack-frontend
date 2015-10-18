@@ -1,7 +1,7 @@
 <section class="w-first-step">
   <header class="w-first-step__header">
     <h2>Hotels in {{ hotelResults.arrivalLocation }}</h2>
-    <h3>{{ moment(hotelResults.checkinDate).format('MMM Do YYYY') }}</h3>
+    <h3>{{ moment(hotelResults.checkinDate).format('MMM Do') }} &emdash; moment(hotelResults.checkoutDate).format('MMM Do') }}</h3>
     <div class="t-clearfix"></div>
   </header>
   <div>
@@ -10,7 +10,7 @@
         class="w-first-step__flight"
         ng-repeat="r in hotelResults.hotels">
         <ul>
-          <li><span>{{ r.name }}</span> <span>{{ moment(r.checkingDate).format('MMM Do YYYY') }}</span><span>{{ moment(r.checkoutDate).format('MMM Do YYYY') }}</span></li><!--
+          <li><span>{{ r.name }}</span></li><!--
           --><li><span>{{ r.stars }}</li><!--
           --><li><span>&pound; {{ r.price }}</span></li>
         </ul>
