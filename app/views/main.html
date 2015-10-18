@@ -15,7 +15,7 @@
       placeholder="Put here any URL">
     <button
       class="c-btn c-btn--main c-main-form__submit"
-      ng-disabled="!query"
+      ng-disabled="!query || !isValidUrl(query)"
       ng-click="search(query)">
       Discover!
     </button>

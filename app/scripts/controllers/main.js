@@ -9,6 +9,12 @@
  */
 angular.module('mashopoloApp')
   .controller('MainCtrl', function ($scope, $rootScope, iframePath, flights) {
+    var URL_REGEXP = /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/;
+
+    $scope.isValidUrl = function(query) {
+      return URL_REGEXP.test(query);
+    };
+
     $scope.search = function(query) {
       $rootScope.positionPromise.then(function(position) {
         var type;
