@@ -1,5 +1,11 @@
-@keyframes dash {
+@keyframes dash-tick {
   to {
     stroke-dashoffset: 200;
+  }
+}
+
+@keyframes dash-loader {
+  to {
+    stroke-dashoffset: 382;
   }
 }
