@@ -29,6 +29,14 @@
     span { color: $color-grey-2; }
   }
 
+  &__price {
+    color: $color-main;
+    font-size: 20px;
+    float: left;
+    font-weight: bolder;
+    margin-top: 25px;
+  }
+
   .w-third-step__submit {
     color: $color-white;
     padding: 10px 20px;
