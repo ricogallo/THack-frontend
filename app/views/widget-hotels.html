@@ -1,6 +1,6 @@
 <section class="w-second-step">
   <header class="w-second-step__header">
-    <h2>Hotels in {{ hotelResults.arrivalLocation }}</h2>
+    <h2>Hotels in {{ arrivalCity }}</h2>
     <h3>{{ moment(hotelResults.checkinDate).format('D MMM') }} <div class="t-divisor t-divisor--white">▶</div> {{ moment(hotelResults.checkoutDate).format('D MMM') }}</h3>
     <div class="t-clearfix"></div>
   </header>
@@ -8,10 +8,10 @@
     <ul>
       <li
         class="w-second-step__hotel"
-        ng-repeat="r in hotelResults.hotels">
+        ng-repeat="r in hotelResults">
         <ul ng-click="selectHotel(r)">
           <li><span>{{ r.name }}</span></li><!--
-          --><li><span>{{ r.address }}</span></li><!--
+          <!-- --1><li><span>{{ r.address }}</span></li><!-- -->
           --><li><span ng-bind-html="repeatStars(r.stars)"></li><!--
           --><li><span>&pound; {{ r.price }}</span></li>
         </ul>

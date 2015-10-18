@@ -8,26 +8,38 @@
  * Controller of the mashopoloApp
  */
 angular.module('mashopoloApp')
-  .controller('WidgetCtrl', function ($q, $scope, $route, flights, payments, hotels, cityFromAirport) {
+  .controller('WidgetCtrl', function ($q, $scope, $route, flights, payments, hotels, cityFromAirport, $timeout) {
     $scope.airlineResults = [];
     $scope.hotelResults = [];
+    var timeoutId;
 
     $scope.widgetLoading = true;
 
     flights.search($route.current.params).then(function(res) {
-      $scope.airlineResults = res.data;
+      timeoutId = $timeout(function() {
+        $scope.widgetLoading = false;
+      }, 12000);
+
+      var hotelParams = {
+        lat: $route.current.params.lat,
+        long: $route.current.params.long,
+        checkin: moment(res.data.flights[0].segments[0].arrivalTime).format('YYYY-MM-DD')
+      };
 
       return $q.all([
         cityFromAirport.search(res.data.departureLocation),
         cityFromAirport.search(res.data.arrivalLocation),
-        hotels.search($route.current.params),
+        hotels.search(hotelParams),
+        $q.when(res.data)
       ])
     })
     .then(function(responses) {
         $scope.departureCity = responses[0].data.airports[0].city;
         $scope.arrivalCity = responses[1].data.airports[0].city;
         $scope.hotelResults = responses[2].data;
+        $scope.airlineResults = responses[3].data;
         $scope.widgetLoading = false;
+        $timeout.cancel(timeoutId);
     });
 
     $scope.moment = window.moment;
