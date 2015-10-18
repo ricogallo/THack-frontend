@@ -1,5 +1,5 @@
 <div class="w-main">
-  <ul class="w-main__steps">
+  <ul class="w-main__steps" ng-hide="is('end')">
     <li
       ng-class="{ active: is('flights') || is('hotels') || is('checkout') }"
       ng-click="goTo('flights')">
@@ -31,6 +31,7 @@
       <ng-include src="'views/widget-checkout.html'"></ng-include>
     </li>
   </ul>
+  <ng-include src="'views/widget-end.html'" ng-show="is('end')"></ng-include>
   <div class="w-main__footer">
     mashopolo.com
   </div>

@@ -8,13 +8,12 @@
  * Controller of the mashopoloApp
  */
 angular.module('mashopoloApp')
-  .controller('WidgetCtrl', function ($scope, $route, flights) {
+  .controller('WidgetCtrl', function ($scope, $route, flights, payments) {
     $scope.airlineResults = [];
     $scope.hotelResults = [];
 
     flights.search($route.current.params).then(function(res) {
       $scope.airlineResults = res.data;
-      console.log(res.data);
     });
 
     $scope.moment = window.moment;
@@ -50,37 +49,10 @@ angular.module('mashopoloApp')
       $scope.goTo('checkout');
     };
 
-    // $scope.airlineResults = {
-    //   departureLocation: 'MPX',
-    //   arrivalLocation: 'HAM',
-    //   departureDate: new Date,
-    //   flights: [
-    //     {
-    //       departureTime: new Date,
-    //       arrivalTime: new Date,
-    //       flightCode: 'AZ1234',
-    //       airline: 'Alitalia',
-    //       price: '100',
-    //       image: 'http://ndc.developer.iata.org/files/athena2.png'
-    //     },
-    //     {
-    //       departureTime: new Date,
-    //       arrivalTime: new Date,
-    //       flightCode: 'AZ1234',
-    //       airline: 'Alitalia',
-    //       price: '100',
-    //       image: 'http://ndc.developer.iata.org/files/athena2.png'
-    //     },
-    //     {
-    //       departureTime: new Date,
-    //       arrivalTime: new Date,
-    //       flightCode: 'AZ1234',
-    //       airline: 'Alitalia',
-    //       price: '100',
-    //       image: 'http://ndc.developer.iata.org/files/athena2.png'
-    //     }
-    //   ]
-    // };
+    $scope.checkout = function(user) {
+      payments.checkout(user);
+      $scope.goTo('end');
+    };
 
     $scope.repeatStars = function(stars) {
       var string = '';
